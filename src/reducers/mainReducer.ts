@@ -7,7 +7,6 @@ import {
   deleteFeature,
   enableUpdatingUrl,
   selectFeature,
-  Selection,
   setActiveModal,
   setAppState,
   setEmbedFeatures,
@@ -46,7 +45,6 @@ export interface MainState {
   errorTicketId: string | undefined;
   eleSmoothingFactor: number;
   embedFeatures: string[];
-  selection: Selection | null;
 }
 
 const initialState: MainState = {
@@ -62,7 +60,6 @@ const initialState: MainState = {
   errorTicketId: undefined,
   eleSmoothingFactor: 5,
   embedFeatures: [],
-  selection: null,
 };
 
 export const mainReducer = createReducer<MainState, RootAction>(initialState)
@@ -70,10 +67,6 @@ export const mainReducer = createReducer<MainState, RootAction>(initialState)
     return {
       ...state,
       tool: action.payload,
-      selection:
-        action.payload === 'route-planner' || action.payload === 'track-viewer'
-          ? null
-          : state.selection,
     };
   })
   .handleAction(clearMap, (state) => {

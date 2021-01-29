@@ -7,15 +7,16 @@ import { useMapEvent } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 
 export function DrawingLinesTool(): null {
-  const selection = useSelector((state: RootState) => state.main.selection);
-
   const tool = useSelector((state: RootState) => state.main.tool);
 
-  const linePoints = useSelector((state: RootState) =>
-    state.main.selection?.type !== 'draw-lines' &&
-    state.main.selection?.type !== 'draw-polygons'
-      ? []
-      : state.drawingLines.lines[state.main.selection.id].points,
+  const selectedId = useSelector(
+    (state: RootState) => state.drawingLines.selectedId,
+  );
+
+  const line = useSelector((state: RootState) =>
+    state.drawingLines.selectedId === undefined
+      ? undefined
+      : state.drawingLines.lines[state.drawingLines.selectedId],
   );
 
   const dispatch = useDispatch();
@@ -23,6 +24,8 @@ export function DrawingLinesTool(): null {
   const handleMapClick = useCallback(
     ({ latlng, originalEvent }: LeafletMouseEvent) => {
       if (
+        line === undefined ||
+        selectedId === undefined ||
         // see https://github.com/FreemapSlovakia/freemap-v3-react/issues/168
         window.preventMapClick ||
         !(
@@ -33,25 +36,21 @@ export function DrawingLinesTool(): null {
         return;
       }
 
-      const pos = linePoints.length;
+      const pos = line.points.length;
 
       let id: number;
 
       if (pos === 0) {
-        id = linePoints.length ? linePoints[pos].id - 1 : 0;
-      } else if (pos === linePoints.length) {
-        id = linePoints[pos - 1].id + 1;
+        id = line.points.length ? line.points[pos].id - 1 : 0;
+      } else if (pos === line.points.length) {
+        id = line.points[pos - 1].id + 1;
       } else {
-        id = (linePoints[pos - 1].id + linePoints[pos].id) / 2;
+        id = (line.points[pos - 1].id + line.points[pos].id) / 2;
       }
 
       dispatch(
         drawingLineAddPoint({
-          index:
-            selection?.type === 'draw-lines' ||
-            selection?.type === 'draw-polygons'
-              ? selection.id
-              : undefined,
+          index: line.type === 'polygon' ? selectedId : undefined,
           point: { lat: latlng.lat, lon: latlng.lng, id },
           position: pos,
           type: tool === 'draw-lines' ? 'line' : 'polygon',
@@ -60,7 +59,7 @@ export function DrawingLinesTool(): null {
 
       dispatch(drawingPointMeasure(true));
     },
-    [linePoints, dispatch, selection, tool],
+    [line, dispatch, selectedId, tool],
   );
 
   useMapEvent('click', handleMapClick);

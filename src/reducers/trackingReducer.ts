@@ -1,5 +1,10 @@
 import { RootAction } from 'fm3/actions';
-import { clearMap, setActiveModal } from 'fm3/actions/mainActions';
+import {
+  clearMap,
+  selectFeature,
+  setActiveModal,
+  setTool,
+} from 'fm3/actions/mainActions';
 import { mapsDataLoaded } from 'fm3/actions/mapsActions';
 import { rpcEvent, rpcResponse } from 'fm3/actions/rpcActions';
 import { trackingActions } from 'fm3/actions/trackingActions';
@@ -27,6 +32,7 @@ export interface TrackingState {
   tracks: Track[];
   showLine: boolean;
   showPoints: boolean;
+  selectedId: string | number | undefined;
 }
 
 const initialState: TrackingState = {
@@ -40,6 +46,7 @@ const initialState: TrackingState = {
   tracks: [],
   showLine: true,
   showPoints: true,
+  selectedId: undefined,
 };
 
 type HasTokenOrDeviceId =
@@ -50,6 +57,18 @@ export const trackingReducer = createReducer<TrackingState, RootAction>(
   initialState,
 )
   .handleAction(clearMap, () => initialState)
+  .handleAction(setTool, (state, action) => ({
+    ...state,
+    selectedId:
+      action.payload === 'route-planner' || action.payload === 'track-viewer'
+        ? undefined
+        : state.selectedId,
+  }))
+  .handleAction(selectFeature, (state, action) => ({
+    ...state,
+    selectedId:
+      action.payload?.type === 'tracking' ? action.payload.id : undefined,
+  }))
   .handleAction(setActiveModal, (state) => ({
     ...state,
     devices: [],

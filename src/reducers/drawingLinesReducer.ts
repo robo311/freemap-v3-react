@@ -6,26 +6,36 @@ import {
   drawingLineUpdatePoint,
   Line,
 } from 'fm3/actions/drawingLineActions';
-import { clearMap, selectFeature } from 'fm3/actions/mainActions';
+import { clearMap, selectFeature, setTool } from 'fm3/actions/mainActions';
 import { mapsDataLoaded } from 'fm3/actions/mapsActions';
 import produce from 'immer';
 import { createReducer } from 'typesafe-actions';
 
 export interface DrawingLinesState {
   lines: Line[];
+  selectedId: number | undefined;
 }
 
 export const initialState: DrawingLinesState = {
   lines: [],
+  selectedId: undefined,
 };
 
 export const drawingLinesReducer = createReducer<DrawingLinesState, RootAction>(
   initialState,
 )
   .handleAction(clearMap, () => initialState)
-  .handleAction(selectFeature, (state) => ({
+  .handleAction(setTool, (state, action) => ({
     ...state,
-    lines: state.lines.filter(linefilter),
+    selectedId:
+      action.payload === 'route-planner' || action.payload === 'track-viewer'
+        ? undefined
+        : state.selectedId,
+  }))
+  .handleAction(selectFeature, (state, action) => ({
+    ...state,
+    selectedId:
+      action.payload?.type === 'draw-linePoly' ? action.payload.id : undefined,
   }))
   .handleAction(drawingLineAddPoint, (state, action) =>
     produce(state, (draft) => {
@@ -75,6 +85,7 @@ export const drawingLinesReducer = createReducer<DrawingLinesState, RootAction>(
   }))
   .handleAction(mapsDataLoaded, (_state, action) => {
     return {
+      selectedId: undefined,
       lines: (action.payload.lines ?? initialState.lines).map((line) => ({
         ...line,
         type:

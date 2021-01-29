@@ -51,7 +51,9 @@ export const exportPdfProcessor: Processor<typeof exportPdf> = {
       style,
     } = action.payload;
 
-    const { selection } = getState().main;
+    const { drawingLines } = getState();
+
+    const { selectedId } = drawingLines;
 
     let w: number | undefined = undefined;
     let n: number | undefined = undefined;
@@ -65,11 +67,11 @@ export const exportPdfProcessor: Processor<typeof exportPdf> = {
       e = bounds.getEast();
       s = bounds.getSouth();
     } else {
-      if (selection?.type === 'draw-polygons' && selection.id !== undefined) {
-        // selected polygon
-
-        for (const { lat, lon } of getState().drawingLines.lines[selection.id]
-          .points) {
+      if (
+        selectedId !== undefined &&
+        drawingLines.lines[selectedId].type === 'polygon'
+      ) {
+        for (const { lat, lon } of drawingLines.lines[selectedId].points) {
           w = Math.min(w === undefined ? 1000 : w, lon);
           n = Math.max(n === undefined ? -1000 : n, lat);
           e = Math.max(e === undefined ? -1000 : e, lon);
@@ -81,15 +83,15 @@ export const exportPdfProcessor: Processor<typeof exportPdf> = {
     const features: Feature<Geometries>[] = [];
 
     if (drawing) {
-      const { lines } = getState().drawingLines;
+      const { lines } = drawingLines;
 
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
 
         if (
           area === 'selected' &&
-          selection?.type === 'draw-polygons' &&
-          selection.id === i
+          selectedId === i &&
+          drawingLines.lines[selectedId].type === 'polygon'
         ) {
           continue;
         }

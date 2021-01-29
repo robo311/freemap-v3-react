@@ -65,7 +65,7 @@ export function preGlobalReducer(
         });
 
         draft.main.selection = {
-          type: 'draw-lines',
+          type: 'draw-linePoly',
           id: draft.drawingLines.lines.length - 1,
         };
 
@@ -190,22 +190,25 @@ export function preGlobalReducer(
           milestones: routePlanner.milestones,
         },
       };
-    } else if (
-      state.main.selection?.type === 'draw-lines' ||
-      state.main.selection?.type === 'draw-polygons'
-    ) {
+    } else if (state.main.selection?.type === 'draw-linePoly') {
       const {
         drawingLines,
         main: { selection },
       } = state;
 
-      return {
-        ...state,
-        drawingLines: {
-          ...drawingLines,
-          lines: drawingLines.lines.filter((_, i) => i !== selection.id),
-        },
-      };
+      if (selection.pointIndex !== undefined) {
+        // TODO
+
+        return state;
+      } else {
+        return {
+          ...state,
+          drawingLines: {
+            ...drawingLines,
+            lines: drawingLines.lines.filter((_, i) => i !== selection.id),
+          },
+        };
+      }
     } else if (state.main.selection?.type === 'draw-points') {
       const {
         drawingPoints,
@@ -249,10 +252,7 @@ export function postGlobalReducer(
       const index = action.payload.index ?? draft.drawingLines.lines.length - 1;
 
       draft.main.selection = {
-        type:
-          draft.drawingLines.lines[index].type === 'polygon'
-            ? 'draw-polygons'
-            : 'draw-lines',
+        type: 'draw-linePoly',
         id: index,
       };
     });
@@ -261,10 +261,7 @@ export function postGlobalReducer(
   ) {
     return produce(state, (draft) => {
       draft.main.selection = {
-        type:
-          draft.drawingLines.lines[action.payload.index].type === 'polygon'
-            ? 'draw-polygons'
-            : 'draw-lines',
+        type: 'draw-linePoly',
         id: action.payload.index,
       };
     });
@@ -278,11 +275,7 @@ export function postGlobalReducer(
   } else if (isActionOf(drawingChangeLabel, action)) {
     return produce(state, (draft) => {
       const selection = draft.main.selection;
-      if (
-        (selection?.type === 'draw-polygons' ||
-          selection?.type === 'draw-lines') &&
-        selection?.id !== undefined
-      ) {
+      if (selection?.type === 'draw-linePoly' && selection?.id !== undefined) {
         draft.drawingLines.lines[selection.id].label = action.payload.label;
       } else if (
         selection?.type === 'draw-points' &&
