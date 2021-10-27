@@ -124,11 +124,11 @@ export function Copyright(): ReactElement {
         target={buttonRef.current}
       >
         <Popover id="popover-copyright" className="fm-menu">
-          <Popover.Content>
+          <Popover.Body>
             <Dropdown.Item
               key="attribution"
               as="button"
-              onSelect={(_, e) => {
+              onClick={(e) => {
                 e.preventDefault();
                 setShow('licence');
               }}
@@ -139,7 +139,7 @@ export function Copyright(): ReactElement {
               <Dropdown.Item
                 key="legend"
                 href="?show=legend"
-                onSelect={(_, e) => {
+                onClick={(e) => {
                   e.preventDefault();
                   setShow(undefined);
                   dispatch(setActiveModal('legend'));
@@ -151,7 +151,7 @@ export function Copyright(): ReactElement {
             <Dropdown.Item
               key="privacyPolicy"
               href="?tip=privacyPolicy"
-              onSelect={(_, e) => {
+              onClick={(e) => {
                 e.preventDefault();
                 setShow(undefined);
                 dispatch(documentShow('privacyPolicy'));
@@ -159,7 +159,7 @@ export function Copyright(): ReactElement {
             >
               <FaLock /> Privacy policy
             </Dropdown.Item>
-          </Popover.Content>
+          </Popover.Body>
         </Popover>
       </Overlay>
 

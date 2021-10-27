@@ -357,9 +357,7 @@ export function ExportPdfModal({ show }: Props): ReactElement {
             }}
           />
 
-          <InputGroup.Append>
-            <InputGroup.Text>DPI</InputGroup.Text>
-          </InputGroup.Append>
+          <InputGroup.Text>DPI</InputGroup.Text>
         </InputGroup>
 
         <hr />

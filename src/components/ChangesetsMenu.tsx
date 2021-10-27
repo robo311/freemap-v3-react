@@ -87,17 +87,15 @@ export function ChangesetsMenu(): ReactElement {
             value={authorName ?? ''}
           />
 
-          <InputGroup.Append>
-            <Button
-              variant="secondary"
-              disabled={!authorName}
-              onClick={() => {
-                setAuthorName(null);
-              }}
-            >
-              <FaEraser />
-            </Button>
-          </InputGroup.Append>
+          <Button
+            variant="secondary"
+            disabled={!authorName}
+            onClick={() => {
+              setAuthorName(null);
+            }}
+          >
+            <FaEraser />
+          </Button>
         </InputGroup>
 
         <Button

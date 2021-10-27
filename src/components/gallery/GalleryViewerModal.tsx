@@ -34,6 +34,7 @@ import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
+import FormSelect from 'react-bootstrap/FormSelect';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Modal from 'react-bootstrap/Modal';
 import {
@@ -233,8 +234,7 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
         <Modal.Title>
           {m?.gallery.viewer.title}{' '}
           {imageIds && (
-            <FormControl
-              as="select"
+            <FormSelect
               value={index}
               onChange={handleIndexChange}
               className="w-auto d-inline-block"
@@ -244,7 +244,7 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
                   {i + 1}
                 </option>
               ))}
-            </FormControl>
+            </FormSelect>
           )}
           {imageIds ? ` / ${imageIds.length} ` : ''}
           {title && `- ${title}`}
@@ -360,7 +360,7 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
                 tags.map((tag) => (
                   <Fragment key={tag}>
                     {' '}
-                    <Badge variant="secondary">{tag}</Badge>
+                    <Badge bg="secondary">{tag}</Badge>
                   </Fragment>
                 ))}
               {!isFullscreen && editModel && (
@@ -381,6 +381,7 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
                   </Button>
                 </form>
               )}
+
               {!isFullscreen && (
                 <>
                   <hr />
@@ -407,19 +408,19 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
                             }}
                             maxLength={4096}
                           />
-                          <InputGroup.Append>
-                            <Button
-                              variant="secondary"
-                              type="submit"
-                              disabled={comment.length < 1}
-                            >
-                              {m?.gallery.viewer.addComment}
-                            </Button>
-                          </InputGroup.Append>
+
+                          <Button
+                            variant="secondary"
+                            type="submit"
+                            disabled={comment.length < 1}
+                          >
+                            {m?.gallery.viewer.addComment}
+                          </Button>
                         </InputGroup>
                       </FormGroup>
                     </form>
                   )}
+
                   {user && (
                     <div>
                       {m?.gallery.viewer.yourRating}{' '}
@@ -438,6 +439,7 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
           )}
         </div>
       </Modal.Body>
+
       <Modal.Footer>
         {image && user && (user.isAdmin || user.id === image.user.id) && (
           <>
@@ -449,11 +451,13 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
               active={!!editModel}
             >
               <FaPencilAlt />
+
               <span className="d-none d-sm-inline">
                 {' '}
                 {m?.general.modify} <kbd>M</kbd>
               </span>
             </Button>
+
             <Button
               onClick={() => {
                 dispatch(
@@ -483,6 +487,7 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
             </Button>
           </>
         )}
+
         <Button
           variant="secondary"
           onClick={() => {
@@ -490,17 +495,21 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
           }}
         >
           <FaRegDotCircle />
+
           <span className="d-none d-md-inline">
             {' '}
             {m?.gallery.viewer.showOnTheMap} <kbd>S</kbd>
           </span>
         </Button>
+
         {'exitFullscreen' in document && (
           <Button variant="secondary" onClick={handleFullscreen}>
             <RiFullscreenLine />
+
             <span className="d-none d-md-inline"> {m?.general.fullscreen}</span>
           </Button>
         )}
+
         {lat !== undefined && lon !== undefined && (
           <OpenInExternalAppMenuButton
             lat={lat}
@@ -512,12 +521,14 @@ export function GalleryViewerModal({ show }: Props): ReactElement {
             url={`${process.env['API_URL']}/gallery/pictures/${activeImageId}/image`}
           >
             <FaExternalLinkAlt />
+
             <span className="d-none d-md-inline">
               {' '}
               {m?.gallery.viewer.openInNewWindow}
             </span>
           </OpenInExternalAppMenuButton>
         )}
+
         <Button variant="dark" onClick={close}>
           <FaTimes />
           <span className="d-none d-md-inline">

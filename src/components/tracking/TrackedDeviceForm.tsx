@@ -132,9 +132,7 @@ export function TrackedDeviceForm(): ReactElement {
               type="number"
               min="1"
             />
-            <InputGroup.Append>
-              <InputGroup.Text>px</InputGroup.Text>
-            </InputGroup.Append>
+            <InputGroup.Text>px</InputGroup.Text>
           </InputGroup>
         </FormGroup>
         <FormGroup>
@@ -151,9 +149,7 @@ export function TrackedDeviceForm(): ReactElement {
               value={maxAge}
               onChange={setMaxAge}
             />
-            <InputGroup.Append>
-              <InputGroup.Text>{m?.general.minutes}</InputGroup.Text>
-            </InputGroup.Append>
+            <InputGroup.Text>{m?.general.minutes}</InputGroup.Text>
           </InputGroup>
         </FormGroup>
         <FormGroup>
@@ -176,9 +172,7 @@ export function TrackedDeviceForm(): ReactElement {
               value={splitDistance}
               onChange={setSplitDistance}
             />
-            <InputGroup.Append>
-              <InputGroup.Text>{m?.general.meters}</InputGroup.Text>
-            </InputGroup.Append>
+            <InputGroup.Text>{m?.general.meters}</InputGroup.Text>
           </InputGroup>
         </FormGroup>
         <FormGroup>
@@ -191,9 +185,7 @@ export function TrackedDeviceForm(): ReactElement {
               value={splitDuration}
               onChange={setSplitDuration}
             />
-            <InputGroup.Append>
-              <InputGroup.Text>{m?.general.minutes}</InputGroup.Text>
-            </InputGroup.Append>
+            <InputGroup.Text>{m?.general.minutes}</InputGroup.Text>
           </InputGroup>
         </FormGroup>
       </Modal.Body>

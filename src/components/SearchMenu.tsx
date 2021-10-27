@@ -164,7 +164,7 @@ export function SearchMenu({ hidden, preventShortcut }: Props): ReactElement {
   }, [hidden, preventShortcut]);
 
   const handleClearClick = useCallback(
-    (e: MouseEvent<HTMLInputElement>) => {
+    (e: MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
 
       dispatch(searchSelectResult(null));
@@ -180,14 +180,12 @@ export function SearchMenu({ hidden, preventShortcut }: Props): ReactElement {
     setOpen(results.length > 0);
   }, [results]);
 
-  const handleToggle: DropdownProps['onToggle'] = (isOpen, e) => {
+  const handleToggle: DropdownProps['onToggle'] = (isOpen, metadata) => {
     if (document.activeElement !== inputRef.current && !isOpen) {
       setOpen(false);
 
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
+      metadata.originalEvent?.preventDefault();
+      metadata.originalEvent?.stopPropagation();
     }
   };
 
@@ -216,26 +214,23 @@ export function SearchMenu({ hidden, preventShortcut }: Props): ReactElement {
                 ref={inputRef}
                 onFocus={handleInputFocus}
               />
-              <InputGroup.Append className="w-auto">
-                {!!selectedResult && (
-                  <Button
-                    variant="secondary"
-                    type="button"
-                    title={m?.general.clear}
-                    onClick={handleClearClick}
-                  >
-                    <FaTimes />
-                  </Button>
-                )}
+              {!!selectedResult && (
                 <Button
                   variant="secondary"
-                  type="submit"
-                  title={m?.search.buttonTitle}
-                  disabled={!value}
+                  title={m?.general.clear}
+                  onClick={handleClearClick}
                 >
-                  <FaSearch />
+                  <FaTimes />
                 </Button>
-              </InputGroup.Append>
+              )}
+              <Button
+                variant="secondary"
+                type="submit"
+                title={m?.search.buttonTitle}
+                disabled={!value}
+              >
+                <FaSearch />
+              </Button>
             </InputGroup>
           </Dropdown.Toggle>
           <Dropdown.Menu

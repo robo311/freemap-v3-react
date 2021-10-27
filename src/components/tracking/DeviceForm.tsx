@@ -110,7 +110,6 @@ export function DeviceForm(): ReactElement {
           <InputGroup>
             <DropdownButton
               variant="secondary"
-              as={InputGroup.Append}
               id="input-dropdown-addon"
               title={types[type]}
               onSelect={onSelect}
@@ -140,14 +139,12 @@ export function DeviceForm(): ReactElement {
               onChange={setToken}
             />
             {type === 'url' && !!device?.id && (
-              <InputGroup.Append>
-                <Button
-                  active={regenerateToken}
-                  onClick={handleRegenerateTokenClick}
-                >
-                  <FaSync /> Regenerate
-                </Button>
-              </InputGroup.Append>
+              <Button
+                active={regenerateToken}
+                onClick={handleRegenerateTokenClick}
+              >
+                <FaSync /> Regenerate
+              </Button>
             )}
           </InputGroup>
         </FormGroup>
@@ -171,9 +168,7 @@ export function DeviceForm(): ReactElement {
               value={maxAge}
               onChange={setMaxAge}
             />
-            <InputGroup.Append>
-              <InputGroup.Text>{m?.general.minutes}</InputGroup.Text>
-            </InputGroup.Append>
+            <InputGroup.Text>{m?.general.minutes}</InputGroup.Text>
           </InputGroup>
         </FormGroup>
       </Modal.Body>

@@ -69,11 +69,9 @@ export function DateTime({
     />
   ) : (
     <InputGroup>
-      <InputGroup.Append>
-        <InputGroup.Text>
-          <FaCalendar />
-        </InputGroup.Text>
-      </InputGroup.Append>
+      <InputGroup.Text>
+        <FaCalendar />
+      </InputGroup.Text>
 
       <FormControl
         type="date"
@@ -84,11 +82,9 @@ export function DateTime({
         required={!!timePart}
       />
 
-      <InputGroup.Append>
-        <InputGroup.Text>
-          <FaClock />
-        </InputGroup.Text>
-      </InputGroup.Append>
+      <InputGroup.Text>
+        <FaClock />
+      </InputGroup.Text>
 
       <FormControl
         type="time"

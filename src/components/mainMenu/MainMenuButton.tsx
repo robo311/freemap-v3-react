@@ -73,6 +73,7 @@ export function MainMenuButton(): ReactElement {
       >
         <FaBars />
       </Button>
+
       <Overlay
         rootClose
         placement="bottom"
@@ -81,7 +82,7 @@ export function MainMenuButton(): ReactElement {
         target={button.current}
       >
         <Popover id="popover-main" className="fm-menu">
-          <Popover.Content className="fm-menu-scroller" ref={sc}>
+          <Popover.Body className="fm-menu-scroller" ref={sc}>
             <div />
 
             {submenu === null ? (
@@ -123,7 +124,7 @@ export function MainMenuButton(): ReactElement {
                 <SocialButtons className="mx-2" />
               </>
             )}
-          </Popover.Content>
+          </Popover.Body>
         </Popover>
       </Overlay>
     </MenuProvier>
