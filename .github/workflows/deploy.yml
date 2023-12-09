@@ -1,0 +1,16 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@develop
+      - uses: actions/setup-node@develop
+        with:
+        node-version: 12
+      - run: npm ci
+      - run: npm run build
