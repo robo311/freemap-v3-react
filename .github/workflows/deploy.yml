@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: 12
+          node-version: 14
       - run: npm i
+      - run: npm run prepare
       - run: npm run build
