@@ -14,4 +14,3 @@ jobs:
           node-version: 14
       - run: npm i
       - run: npm run prepare
-      - run: npm run build
