@@ -1,7 +1,7 @@
-import { removeAdsOnLogin, setActiveModal } from 'fm3/actions/mainActions';
-import { useAppSelector } from 'fm3/hooks/reduxSelectHook';
-import fallback from 'fm3/images/rovas_reklama.svg';
-import { useMessages } from 'fm3/l10nInjector';
+import { removeAdsOnLogin, setActiveModal } from '../actions/mainActions';
+import { useAppSelector } from '../hooks/reduxSelectHook';
+import fallback from '../images/rovas_reklama.svg';
+import { useMessages } from '../l10nInjector';
 import { ReactElement, useEffect, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';

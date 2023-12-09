@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/robo/Developer/freemap-v3-react/src/tests/useDateTimeFormat.test.ts">
+    <testCase name="useDateTimeFormat returns a formatted date string based on language and options" duration="296"/>
+  </file>
+  <file path="/Users/robo/Developer/freemap-v3-react/src/tests/useCheckboxInputState-hook.test.tsx">
+    <testCase name="useShow hook renders null when show is false" duration="15"/>
+    <testCase name="useShow hook renders true when show is true" duration="2"/>
+    <testCase name="useShow hook renders null after timeout when show is false" duration="7"/>
+  </file>
+  <file path="/Users/robo/Developer/freemap-v3-react/src/tests/DrawingPointsTool.test.tsx">
+    <testCase name="DrawingPointsTool Component dispatches drawingPointAdd and drawingMeasure on map click" duration="451">
+      <failure message="Error: No context provided: useLeafletContext() can only be used in a descendant of &lt;MapContainer&gt;"><![CDATA[Error: No context provided: useLeafletContext() can only be used in a descendant of <MapContainer>
+    at useLeafletContext (/Users/robo/Developer/freemap-v3-react/node_modules/@react-leaflet/core/lib/context.js:20:15)
+    at useMap (/Users/robo/Developer/freemap-v3-react/node_modules/react-leaflet/lib/hooks.js:4:29)
+    at useMap (/Users/robo/Developer/freemap-v3-react/node_modules/react-leaflet/lib/hooks.js:7:17)
+    at DrawingPointsTool (/Users/robo/Developer/freemap-v3-react/src/components/DrawingPointsTool.tsx:16:14)
+    at Component (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at renderWithHooks (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at mountIndeterminateComponent (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at beginWork$1 (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at performUnitOfWork (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at workLoopSync (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at renderRootSync (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at recoverFromConcurrentError (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at callback (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:2667:24)
+    at flushActQueue (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:2582:11)
+    at actImplementation (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/act-compat.js:46:25)
+    at renderRoot (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/pure.js:161:25)
+    at renderRoot (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/pure.js:247:10)
+    at Object.<anonymous> (/Users/robo/Developer/freemap-v3-react/src/tests/DrawingPointsTool.test.tsx:18:11)
+    at Promise.then.completed (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:121:9)
+    at run (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)]]></failure>
+    </testCase>
+  </file>
+  <file path="/Users/robo/Developer/freemap-v3-react/src/tests/Checkbox.test.tsx">
+    <testCase name="Checkbox component renders FaRegCheckSquare when value is true" duration="19"/>
+    <testCase name="Checkbox component renders FaRegSquare when value is false" duration="2"/>
+  </file>
+  <file path="/Users/robo/Developer/freemap-v3-react/src/tests/CopyrightButton.test.tsx">
+    <testCase name="CopyrightButton renders without errors" duration="275">
+      <failure message="TypeError: Cannot read properties of undefined (reading &apos;Content&apos;)"><![CDATA[TypeError: Cannot read properties of undefined (reading 'Content')
+    at Content (/Users/robo/Developer/freemap-v3-react/src/components/CopyrightButton.tsx:51:20)
+    at Component (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at renderWithHooks (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at mountIndeterminateComponent (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at beginWork$1 (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at performUnitOfWork (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at workLoopSync (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at renderRootSync (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at recoverFromConcurrentError (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at callback (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:2667:24)
+    at flushActQueue (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:2582:11)
+    at actImplementation (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/act-compat.js:46:25)
+    at renderRoot (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/pure.js:161:25)
+    at renderRoot (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/pure.js:247:10)
+    at Object.<anonymous> (/Users/robo/Developer/freemap-v3-react/src/tests/CopyrightButton.test.tsx:42:11)
+    at Promise.then.completed (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:121:9)
+    at run (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)]]></failure>
+    </testCase>
+    <testCase name="CopyrightButton opens the menu when button is clicked" duration="9">
+      <failure message="TypeError: Cannot read properties of undefined (reading &apos;Content&apos;)"><![CDATA[TypeError: Cannot read properties of undefined (reading 'Content')
+    at Content (/Users/robo/Developer/freemap-v3-react/src/components/CopyrightButton.tsx:51:20)
+    at Component (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at renderWithHooks (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at mountIndeterminateComponent (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at beginWork$1 (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at performUnitOfWork (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at workLoopSync (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at renderRootSync (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at recoverFromConcurrentError (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at callback (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:2667:24)
+    at flushActQueue (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:2582:11)
+    at actImplementation (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/act-compat.js:46:25)
+    at renderRoot (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/pure.js:161:25)
+    at renderRoot (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/pure.js:247:10)
+    at Object.<anonymous> (/Users/robo/Developer/freemap-v3-react/src/tests/CopyrightButton.test.tsx:58:11)
+    at Promise.then.completed (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:121:9)
+    at run (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)]]></failure>
+    </testCase>
+  </file>
+  <file path="/Users/robo/Developer/freemap-v3-react/src/tests/ToolMenu.test.tsx">
+    <testCase name="ToolMenu Component renders correctly and dispatches setTool with null on close button click" duration="246">
+      <failure message="TypeError: Cannot read properties of undefined (reading &apos;counter&apos;)"><![CDATA[TypeError: Cannot read properties of undefined (reading 'counter')
+    at counter (/Users/robo/Developer/freemap-v3-react/src/l10nInjector.tsx:20:40)
+    at selector (/Users/robo/Developer/freemap-v3-react/node_modules/react-redux/lib/hooks/useSelector.js:67:26)
+    at selector (/Users/robo/Developer/freemap-v3-react/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js:79:30)
+    at memoizedSelector (/Users/robo/Developer/freemap-v3-react/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js:134:14)
+    at getSnapshot (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:16799:20)
+    at Object.mountSyncExternalStore [as useSyncExternalStore] (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:17727:14)
+    at useSyncExternalStore (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:1676:21)
+    at useSyncExternalStore (/Users/robo/Developer/freemap-v3-react/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js:145:15)
+    at useSyncExternalStoreWithSelector (/Users/robo/Developer/freemap-v3-react/node_modules/react-redux/lib/hooks/useSelector.js:125:27)
+    at useMessages (/Users/robo/Developer/freemap-v3-react/src/l10nInjector.tsx:20:17)
+    at ToolMenu (/Users/robo/Developer/freemap-v3-react/src/components/ToolMenu.tsx:23:24)
+    at Component (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at renderWithHooks (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at mountIndeterminateComponent (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at beginWork$1 (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at performUnitOfWork (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at workLoopSync (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at renderRootSync (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at recoverFromConcurrentError (/Users/robo/Developer/freemap-v3-react/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at callback (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:2667:24)
+    at flushActQueue (/Users/robo/Developer/freemap-v3-react/node_modules/react/cjs/react.development.js:2582:11)
+    at actImplementation (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/act-compat.js:46:25)
+    at renderRoot (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/pure.js:161:25)
+    at renderRoot (/Users/robo/Developer/freemap-v3-react/node_modules/@testing-library/react/dist/pure.js:247:10)
+    at Object.<anonymous> (/Users/robo/Developer/freemap-v3-react/src/tests/ToolMenu.test.tsx:18:11)
+    at Promise.then.completed (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:121:9)
+    at run (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/robo/.npm/_npx/b8d86e6551a4f492/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)]]></failure>
+    </testCase>
+  </file>
+</testExecutions>

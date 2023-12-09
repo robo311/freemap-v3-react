@@ -33,8 +33,9 @@
       "facebook-js-sdk",
       "facebook-pixel",
       "google.picker",
-      "trackjs"
+      "trackjs",
+      "jest"
     ]
   },
-  "include": ["src", "typings"]
+  "include": ["src", "typings", "src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts", "tests/**/*.tsx", "__mocks__"]
 }

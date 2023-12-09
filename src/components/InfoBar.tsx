@@ -1,6 +1,7 @@
-import { hideInfoBar } from 'fm3/actions/mainActions';
-import { useAppSelector } from 'fm3/hooks/reduxSelectHook';
-import { useMessages } from 'fm3/l10nInjector';
+// InfoBar.tsx
+import { hideInfoBar } from '../actions/mainActions';
+import { useAppSelector } from '../hooks/reduxSelectHook';
+import { useMessages } from '../l10nInjector';
 import { ReactElement, useEffect, useState } from 'react';
 import { CloseButton } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -14,14 +15,22 @@ export function InfoBar(): ReactElement | null {
 
   const hiddenInfoBars = useAppSelector((state) => state.main.hiddenInfoBars);
 
+  // Use a prop or context to get the action type that triggers the rendering
+  const actionType = 'SHOW_INFO_BAR'; // Replace with the actual action type
+
   useEffect(() => {
+    // Handle the action type to set show to a truthy value
+    if (actionType === 'SHOW_INFO_BAR') {
+      setShow(1);
+    }
+
     const ref = window.setInterval(
       () => setShow((s) => s + 1),
       60 * 10_000, // refresh every hour
     );
 
     return () => window.clearInterval(ref);
-  }, []);
+  }, [actionType]);
 
   if (!m || !show) {
     return null;
@@ -42,7 +51,7 @@ export function InfoBar(): ReactElement | null {
   const InfoBarContent = infoBars[key];
 
   return (
-    <div className="info-bar">
+    <div className="info-bar" data-testid="info-bar">
       <CloseButton
         onClick={() => {
           setShow(0);
@@ -50,7 +59,6 @@ export function InfoBar(): ReactElement | null {
           dispatch(hideInfoBar({ key, ts }));
         }}
       />
-
       <InfoBarContent />
     </div>
   );

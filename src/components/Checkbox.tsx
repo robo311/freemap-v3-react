@@ -5,5 +5,9 @@ type Props = {
 };
 
 export function Checkbox({ value }: Props) {
-  return value ? <FaRegCheckSquare /> : <FaRegSquare />;
+  return value ? (
+    <FaRegCheckSquare data-testid="check-square-icon" />
+  ) : (
+    <FaRegSquare data-testid="square-icon" />
+  );
 }
